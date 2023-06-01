@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
 
 // Function for loading translations from the assets folder
 export function HttpLoaderFactory(http: HttpClient) {
@@ -17,7 +18,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MenuComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, MenuComponent, HomeComponent, UsersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

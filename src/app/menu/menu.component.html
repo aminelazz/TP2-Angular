@@ -1,10 +1,5 @@
 <div class="panel">
-  <button
-    id="home"
-    class="home active-btn"
-    (click)="toggle($event)"
-    [routerLink]="'/'"
-  >
+  <button id="home" class="home" (click)="toggle($event)" [routerLink]="'/'">
     <img src="assets\home.svg" alt="Home" width="17px" />
     <div>
       {{ "home" | translate }}
