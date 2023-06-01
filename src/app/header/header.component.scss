@@ -7,3 +7,21 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
+img {
+  width: 20px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  width: 100%;
+  text-align: center;
+}
+
+::ng-deep .dropdown-menu {
+  min-width: 80px; // Adjust the desired width according to your needs
+}

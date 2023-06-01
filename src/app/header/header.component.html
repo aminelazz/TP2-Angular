@@ -1,4 +1,41 @@
-<header class="">
-  <div><h3 class="">Angular Training</h3></div>
-  <div>H</div>
+<header>
+  <div>
+    <h3>Angular Training</h3>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button
+          type="button"
+          class="btn btn-outline-light"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          <img [src]="getIconPath(selectedOption)" alt="Selected Icon" />
+          <!-- Display selected icon -->
+        </button>
+        <div
+          ngbDropdownMenu
+          aria-labelledby="dropdownBasic1"
+          class="menu"
+          container="body dropdown-menu-center"
+        >
+          <button
+            ngbDropdownItem
+            (click)="selectOption('English'); changeLanguage('en')"
+          >
+            <img src="/assets/en.png" alt="English" />
+            <div class="label">EN</div>
+          </button>
+          <button
+            ngbDropdownItem
+            (click)="selectOption('French'); changeLanguage('fr')"
+          >
+            <img src="/assets/fr.png" alt="Français" />
+            <div class="label">FR</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
