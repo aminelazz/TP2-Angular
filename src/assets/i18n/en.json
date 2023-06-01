@@ -1,4 +1,5 @@
 {
-  "greeting": "Hello!",
-  "welcome": "Welcome to my app!"
+  "home": "Home",
+  "manage": "Manage users",
+  "greetings": "Welcome to this test application"
 }
