@@ -1,3 +1,99 @@
 <div class="body">
   <h5>{{ "manage" | translate }}</h5>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">{{ "first_name" | translate }}</th>
+        <th scope="col">{{ "last_name" | translate }}</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.id }}</th>
+        <td>
+          <img
+            [src]="user.avatar"
+            class="me-2 rounded-circle"
+            style="width: 25px"
+          />
+        </td>
+        <td>
+          {{ user.first_name }}
+        </td>
+        <td>
+          {{ user.last_name }}
+        </td>
+        <td>
+          <a [href]="'mailto:' + user.email">
+            {{ user.email }}
+          </a>
+        </td>
+        <td>
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button
+                type="button"
+                class="btn btn-outline-dark dropdown-toggle"
+                id="actions"
+                ngbDropdownToggle
+              >
+                Actions
+              </button>
+              <div
+                ngbDropdownMenu
+                id="menu"
+                class="menu"
+                aria-labelledby="actions"
+              >
+                <button ngbDropdownItem>
+                  <img src="/assets/update.svg" width="20px" alt="Update" />
+                  <div>{{ "update" | translate }}</div>
+                </button>
+                <button ngbDropdownItem (click)="deleteUser(user.id)">
+                  <img src="/assets/delete.svg" width="20px" alt="Delete" />
+                  <div>{{ "delete" | translate }}</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <ngb-pagination
+      [collectionSize]="12"
+      [pageSize]="6"
+      [page]="pageNumber"
+      [directionLinks]="true"
+      (pageChange)="refresh_users($event)"
+    ></ngb-pagination>
+  </div>
+
+  <ngb-alert
+    *ngIf="show_success"
+    type="success"
+    [dismissible]="true"
+    (closed)="success_closed()"
+    >{{ success_message_text | translate }}</ngb-alert
+  >
+  <ngb-alert
+    *ngIf="show_fail"
+    type="danger"
+    [dismissible]="true"
+    (closed)="fail_closed()"
+    >{{ fail_message_text | translate }}</ngb-alert
+  >
+  <ngb-alert
+    *ngIf="show_cancel"
+    type="info"
+    [dismissible]="true"
+    (closed)="cancel_closed()"
+    >{{ cancel_message_text | translate }}</ngb-alert
+  >
 </div>
